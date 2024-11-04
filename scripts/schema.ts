@@ -1,5 +1,6 @@
 import * as fs from 'node:fs'
 import * as path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import * as TJS from 'typescript-json-schema'
 
@@ -15,7 +16,7 @@ const compilerOptions: TJS.CompilerOptions = {
   strictNullChecks: true,
 }
 
-const __dirname = import.meta.dirname
+const __dirname = import.meta.dirname ?? path.dirname(fileURLToPath(import.meta.url))
 const resumeTypeFile = path.resolve(__dirname, '../src/types/resume.ts')
 const program = TJS.getProgramFromFiles(
   [

@@ -41,7 +41,7 @@ onMounted(async () => {
         <div class="inline-block align-sub" i-ri-github-line />
         <span v-if="stars" class="count">{{ stars }}</span>
       </a>
-      <span class="float-right text-xs font-serif">
+      <span class="float-right">
         {{ `${set.start} ~ ${set.end}` }}
       </span>
     </summary>
@@ -61,7 +61,7 @@ onMounted(async () => {
             <span v-if="keyword.icon" mr="1">
               <iconify-icon :icon="keyword.icon" />
             </span>
-            <span v-else-if="keyword.logo">
+            <span v-else-if="keyword.logo" mr="1">
               <img :src="keyword.logo" class="brand-favicon">
             </span>
             <span>

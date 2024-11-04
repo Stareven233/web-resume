@@ -2,21 +2,20 @@
 import type { ResumeInfo } from '~/types'
 
 import ResumeEducation from '~/components/resume/Education.vue'
+import ResumeResearch from '~/components/resume/Research.vue'
 import ResumeProject from '~/components/resume/Project.vue'
 import ResumeCertificate from '~/components/resume/Certificate.vue'
 import ResumeSkill from '~/components/resume/Skill.vue'
 import ResumeWork from '~/components/resume/Work.vue'
 import ResumeOther from '~/components/resume/Other.vue'
 
-const props
-  = defineProps<{
-    resume: ResumeInfo
-  }>()
+const props = defineProps<{ resume: ResumeInfo }>()
 
 const resumeComponents = [
   'education',
-  'project',
   'certificate',
+  'research',
+  'project',
   'skill',
   'work',
   'other',
@@ -24,6 +23,7 @@ const resumeComponents = [
 
 const resumeMap: Record<string, any> = {
   education: ResumeEducation,
+  research: ResumeResearch,
   project: ResumeProject,
   certificate: ResumeCertificate,
   skill: ResumeSkill,
@@ -34,6 +34,9 @@ const resumeMap: Record<string, any> = {
 const { resume } = toRefs(props)
 
 const compOrder = computed(() => {
+  // const order = resumeComponents.filter(type =>
+  //   Object.keys(resume.value).includes(type),
+  // )
   const order = Object.keys(props.resume).filter(type =>
     resumeComponents.includes(type),
   )
@@ -60,6 +63,7 @@ const resumeArr = computed(() => {
 
 <template>
   <div v-if="Object.keys(props.resume).length" class="resume">
+    <!-- <pre>{{ resumeArr }}</pre> -->
     <resume-header :resume="resume" />
 
     <keep-alive>

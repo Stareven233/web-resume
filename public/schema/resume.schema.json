@@ -99,7 +99,6 @@
         }
       },
       "required": [
-        "blog",
         "email",
         "phone"
       ]

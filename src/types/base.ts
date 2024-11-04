@@ -32,6 +32,13 @@ export interface Contact {
   [key: string]: BaseContact
 }
 
+/**
+ * 身份背景
+ */
+export interface Status {
+  [key: string]: string
+}
+
 interface BaseItem {
   /**
    * 图标
@@ -115,6 +122,10 @@ export interface EducationHistory {
    * 城市
    */
   city: string
+  /**
+   * 额外信息
+   */
+  extra?: string[]
 }
 
 /**
@@ -175,6 +186,13 @@ export interface ProjectSet {
  * 工作经历
  */
 export interface Work extends BaseItem {
+  sets: ProjectSet[]
+}
+
+/**
+ * 研究经历
+ */
+export interface Research extends BaseItem {
   sets: ProjectSet[]
 }
 

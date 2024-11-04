@@ -31,7 +31,10 @@ withDefaults(defineProps<{ education: Education | null }>(), {
       </div>
       <div mt-0.5 text-sm>
         <span>{{ edu.studyType }}</span>， <span>{{ edu.area }}</span>
-        <span v-if="edu.grade">，{{ edu.grade }}</span>
+        <span v-if="edu.grade" v-html="`，${edu.grade}`" />
+      </div>
+      <div v-for="(info, index) in edu.extra" :key="index" mt-0.5 text-sm>
+        <p v-html="info" />
       </div>
     </div>
   </div>
@@ -40,7 +43,7 @@ withDefaults(defineProps<{ education: Education | null }>(), {
 <style lang="scss">
 .school-logo {
   display: inline;
-  width: 22px;
+  width: 20px;
   padding-bottom: 3px;
   margin-right: 5px;
 }

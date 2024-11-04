@@ -39,6 +39,10 @@
       "$ref": "#/definitions/Contact",
       "description": "联系方式"
     },
+    "status": {
+      "description": "身份背景",
+      "$ref": "#/definitions/Status"
+    },
     "education": {
       "description": "教育背景",
       "$ref": "#/definitions/Education"
@@ -46,6 +50,10 @@
     "skill": {
       "description": "技能经验",
       "$ref": "#/definitions/Skill"
+    },
+    "research": {
+      "description": "研究经历",
+      "$ref": "#/definitions/Research"
     },
     "project": {
       "description": "项目经历",
@@ -126,6 +134,13 @@
         "label"
       ]
     },
+    "Status": {
+      "description": "身份背景",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
     "Education": {
       "description": "教育背景",
       "type": "object",
@@ -187,6 +202,13 @@
         "city": {
           "description": "城市",
           "type": "string"
+        },
+        "extra": {
+          "description": "额外信息",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
@@ -260,8 +282,8 @@
         }
       }
     },
-    "Project": {
-      "description": "项目经历",
+    "Research": {
+      "description": "研究经历",
       "type": "object",
       "properties": {
         "sets": {
@@ -355,6 +377,31 @@
         "name",
         "start",
         "type"
+      ]
+    },
+    "Project": {
+      "description": "项目经历",
+      "type": "object",
+      "properties": {
+        "sets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProjectSet"
+          }
+        },
+        "icon": {
+          "description": "图标",
+          "type": "string"
+        },
+        "title": {
+          "description": "标题",
+          "type": "string"
+        }
+      },
+      "required": [
+        "icon",
+        "sets",
+        "title"
       ]
     },
     "Certificate": {

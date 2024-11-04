@@ -30,35 +30,35 @@ const name = computed(() => {
       <span class="mx-1">{{ resume.basics.birth }}</span>
       <span class="mx-1">{{ resume.basics.location }}</span>
     </small>
-    <ul
-      class="my-4 text-center list-none"
-      flex justify="center" items="center"
-      text="0.9em"
-    >
+
+    <ul class="mb-2 mx-[10%] text-center list-none" flex justify="center" items="center" text="1em">
       <li
-        v-for="(contact, key) in resume.contact"
-        :key="contact.label"
-        class="mx-3"
-        inline-flex justify="center" items="center"
+        v-for="(contact, key) in resume.contact" :key="contact.label" class="mx-3" inline-flex justify="center"
+        items="center"
       >
         <ResumeContactPhone v-if="key === 'phone'" :contact="contact" />
         <a
-          v-else
-          class="text-decoration-none font-medium"
-          :href="contact.href"
-          target="_blank"
-          inline-flex justify="center" items="center"
+          v-else class="text-decoration-none font-medium" :href="contact.href" target="_blank" inline-flex
+          justify="center" items="center"
         >
-          <div
-            v-if="contact.icon.startsWith('i-')" inline-flex
-            :class="contact.icon"
-          />
+          <div v-if="contact.icon.startsWith('i-')" inline-flex :class="contact.icon" />
           <iconify-icon v-else :icon="contact.icon" />
 
           <span inline-flex class="resume-contact-label" ml="1">
             {{ contact.label }}
           </span>
         </a>
+      </li>
+    </ul>
+
+    <ul v-if="resume.status" class="mb-2 mx-[10%] text-center list-none" flex justify="center" items="center" text="1em">
+      <li
+        v-for="(value, key) in resume.status" :key="key" class="mx-3" inline-flex justify="center"
+        items="center"
+      >
+        <span inline-flex class="resume-contact-label" ml="1">
+          {{ key }}：{{ value }}
+        </span>
       </li>
     </ul>
   </div>

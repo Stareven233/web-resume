@@ -10,11 +10,12 @@ const history = toRef(props, 'history')
 
 <template>
   <li v-if="history">
-    <span class="font-black text-kaiti">{{ history.name }}</span>
+    <!-- <span class="font-black text-kaiti">{{ history.name }}</span> -->
+    <span>{{ history.name }}</span>
     <span v-if="history.place">
       <iconify-icon class="position-icon" icon="ri:map-pin-line" />
       {{ history.place }}
     </span>
-    <span class="float-right" font="mono">{{ history.time }}</span>
+    <span class="float-right">{{ history.time }}</span>
   </li>
 </template>

@@ -1,4 +1,4 @@
-import type { Certificate, Contact, Education, Other, Project, Skill } from './base'
+import type { Certificate, Contact, Education, Other, Project, Research, Skill, Status } from './base'
 
 export interface ResumeItem {
   id?: string
@@ -36,8 +36,10 @@ export interface ResumeInfo {
    * 联系方式
    */
   contact: Contact
+  status?: Status
   education?: Education
   skill?: Skill
+  research?: Research
   project?: Project
   certificate?: Certificate
   other?: Other
