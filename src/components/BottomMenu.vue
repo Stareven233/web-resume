@@ -19,16 +19,16 @@ const items = computed<BottomMenuItem[]>(() => {
       to: '/editor',
     },
     {
+      icon: 'i-ri-compass-line',
+      activeIcon: 'i-ri-compass-fill',
+      title: '发现',
+      to: '/explore',
+    },
+    {
       icon: 'i-ri-user-line',
       activeIcon: 'i-ri-user-fill',
       title: '我的',
       to: '/user',
-    },
-    {
-      icon: 'i-ri-file-info-line',
-      activeIcon: 'i-ri-file-info-fill',
-      title: t('button.about'),
-      to: '/about',
     },
   ]
 })

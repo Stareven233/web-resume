@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import type { ResumeInfo } from '~/types'
 
-import ResumeEducation from '~/components/resume/Education.vue'
-import ResumeResearch from '~/components/resume/Research.vue'
-import ResumeProject from '~/components/resume/Project.vue'
 import ResumeCertificate from '~/components/resume/Certificate.vue'
+import ResumeEducation from '~/components/resume/Education.vue'
+import ResumeOther from '~/components/resume/Other.vue'
+import ResumeProject from '~/components/resume/Project.vue'
+import ResumeResearch from '~/components/resume/Research.vue'
 import ResumeSkill from '~/components/resume/Skill.vue'
 import ResumeWork from '~/components/resume/Work.vue'
-import ResumeOther from '~/components/resume/Other.vue'
 
 const props = defineProps<{ resume: ResumeInfo }>()
 
@@ -49,7 +49,7 @@ const resumeArr = computed(() => {
     props: any
     attr: keyof ResumeInfo
   }[] = []
-  compOrder.value.forEach((type) => {
+  compOrder.value.forEach((type: keyof ResumeInfo) => {
     arr.push({
       attr: type,
       component: resumeMap[type],

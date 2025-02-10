@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import yaml from 'js-yaml'
-import { useRoute } from 'vue-router'
-import type { ResumeInfo } from '../types'
-import { fetchText } from '~/utils'
-import { useEditorStore } from '~/stores/editor'
-
-const editorStore = useEditorStore()
-
-const resume = ref<ResumeInfo>()
 const route = useRoute()
-
-onBeforeMount(async () => {
-  let text = editorStore.resumeText || ''
-  if (route.query.url)
-    text = await fetchText(route.query.url as string)
-
-  resume.value = yaml.load(text) as ResumeInfo
+const router = useRouter()
+onMounted(() => {
+  setTimeout(() => {
+    router.push({
+      path: '/',
+      query: route.query,
+    })
+  }, 1000)
 })
 </script>
 
 <template>
-  <resume-all v-if="resume" :resume="resume" />
+  <div class="w-full h-50 justify-center items-center" flex="~ col gap-4">
+    <div class="op-80">
+      重定向至首页
+    </div>
+
+    <div>
+      Redirecting...
+    </div>
+  </div>
 </template>

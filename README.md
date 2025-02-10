@@ -26,9 +26,9 @@
 
 #### Preview
 
-View `https://resume.elpsy.cn/#/resume?url=` + `Your Resume File URL`.
+View `https://web-resume.yunyoujun.cn/#/?url=` + `Your Resume File URL`.
 
-For example: `https://resume.elpsy.cn/#/resume?url=https://fastly.jsdelivr.net/gh/YunYouJun/web-resume/src/assets/resume/local.resume.yml`.
+For example: `https://web-resume.yunyoujun.cn/#/?url=https://fastly.jsdelivr.net/gh/YunYouJun/web-resume/src/assets/resume/local.resume.yml`.
 
 #### Edit
 
@@ -61,7 +61,7 @@ pnpm run resume
 
 Custom `src/assets/resume/local.resume.yml` (Hot Reload)
 
-> View `http://localhost:3000/local`
+> View `http://localhost:3000/`
 > You can use vscode with yaml validate.
 
 ##### Google Analytics

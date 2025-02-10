@@ -2,9 +2,9 @@ import * as fs from 'node:fs'
 import * as path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import * as TJS from 'typescript-json-schema'
-
 import consola from 'consola'
+
+import * as TJS from 'typescript-json-schema'
 
 // optionally pass argument to schema generator
 const settings: TJS.PartialArgs = {

@@ -10,6 +10,8 @@
   margin: auto;
   max-width: 1200px;
 
+  background-color: var(--wr-c-resume-bg);
+
   a {
     color: var(--wr-c-link);
   }
@@ -24,7 +26,16 @@
 
   ul {
     list-style-type: disc;
-    padding-inline-start: 35px;
+    list-style-position: inside;
+
+    li {
+      padding-left: 16px;
+
+      > span {
+        position: relative;
+        left: -6px;
+      }
+    }
   }
 
   .brand-favicon {
@@ -36,6 +47,10 @@
   details {
     outline: none;
     cursor: pointer;
+  }
+
+  summary {
+    margin: 10px 0;
   }
 }
 
